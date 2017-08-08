@@ -1,6 +1,16 @@
 # Dashboard Service
 
 ## Build and install
+
+1. gradle build  
+
+2. java -jar build/libs/dashboardservice.war
+
+## Tests:
+
+1. gradle test
+
+
 To get a better experience during development we suggest to install the STS editor.
 Installing the required dependencies and building the sources for the application needs to be done in two steps:
 
