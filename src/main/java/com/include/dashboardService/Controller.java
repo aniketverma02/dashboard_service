@@ -4,10 +4,12 @@
 package com.include.dashboardService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.include.dashboardService.dashboarddata.DashboardData;
 import com.include.dashboardService.dashboarddata.DashboardDataServiceImpl;
 
 
@@ -27,11 +29,15 @@ public class Controller {
         return name;
     }
 	
+	@CrossOrigin
 	@RequestMapping("/getData")
     public ApiResponse getData(@RequestParam(value="code", defaultValue="1") String code) {
 		ApiResponse response = new ApiResponse();
+		
 		try{
-		response.setData(dashboardDataService.findOneByCode(code));
+		
+		DashboardData data = dashboardDataService.findOneByCode(code);
+		response.setData(data);
 		response.setMsg("success");
 		response.setStatus(200);
 		}
